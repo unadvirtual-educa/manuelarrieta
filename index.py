@@ -1,9 +1,10 @@
 # ============================================================
 # main.py - Punto de entrada con interfaz Tkinter
 # Software FJ - Sistema Integral de Gestión
-# Estudiante: Manuel Arrieta
-# Código: 
-# Grupo Nº: 
+# Estudiante: Yury Manuel Arrieta Estrada
+# Código: 1100398706
+# Grupo Nº: 79
+# Tutor: Mayra Alejandra Diaz
 # Fecha: Mayo de 2026
 # ============================================================
 
@@ -102,9 +103,9 @@ class AppSoftwareFJ:
             btn.bind("<Leave>", lambda e, b=btn: b.config(bg=C_PANEL))
 
        
-        # Nombre del autor en la parte inferior del sidebar
-        tk.Label(sidebar, text="by Manuel Arrieta", bg=C_PANEL,
-                 fg=C_ACCENT, font=("Arial", 8, "italic")).pack(
+        # Autor
+        tk.Label(sidebar, text="by Yury Manuel Arrieta Estrada", bg=C_PANEL,
+                 fg=C_ACCENT, font=("Arial", 7, "italic")).pack(
                  side="bottom", pady=10)
 
         self._mostrar_demo()
