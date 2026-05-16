@@ -22,6 +22,7 @@ from excepciones import (ClienteInvalidoError, ReservaInvalidaError,
                           OperacionNoPermitidaError)
 
 # ── Paleta de colores ────────────────────────────────────────
+"""
 C_BG       = "#1e1e2e"
 C_PANEL    = "#2a2a3e"
 C_ACCENT   = "#7c3aed"
@@ -33,6 +34,17 @@ C_TEXT     = "#e2e8f0"
 C_MUTED    = "#94a3b8"
 C_BORDER   = "#3f3f5a"
 C_WHITE    = "#ffffff"
+"""
+C_BG      = "#f5f5f5"   # Fondo general: gris muy claro
+C_PANEL   = "#e0e0e0"   # Paneles y sidebar: gris claro
+C_ACCENT  = "#424242"   # Botones principales: gris oscuro
+C_ACCENT2 = "#616161"   # Botones secundarios: gris medio
+C_SUCCESS = "#388e3c"   # Confirmaciones: verde oscuro sobrio
+C_WARNING = "#5d4037"   # Advertencias: café oscuro
+C_ERROR   = "#b71c1c"   # Errores: rojo oscuro sobrio
+C_TEXT    = "#212121"   # Texto principal: casi negro
+C_MUTED   = "#757575"   # Texto secundario: gris medio
+C_WHITE   = "#ffffff"   # Blanco puro
 
 
 class AppSoftwareFJ:
