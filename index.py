@@ -98,7 +98,7 @@ class AppSoftwareFJ:
                 cursor="hand2", command=comando
             )
             btn.pack(fill="x")
-            btn.bind("<Enter>", lambda e, b=btn: b.config(bg=C_ACCENT))
+            btn.bind("<Enter>", lambda e, b=btn: b.config(bg="#A0A0A0"))
             btn.bind("<Leave>", lambda e, b=btn: b.config(bg=C_PANEL))
 
        
