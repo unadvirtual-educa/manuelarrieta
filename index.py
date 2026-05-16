@@ -22,19 +22,6 @@ from excepciones import (ClienteInvalidoError, ReservaInvalidaError,
                           OperacionNoPermitidaError)
 
 # ── Paleta de colores ────────────────────────────────────────
-"""
-C_BG       = "#1e1e2e"
-C_PANEL    = "#2a2a3e"
-C_ACCENT   = "#7c3aed"
-C_ACCENT2  = "#06b6d4"
-C_SUCCESS  = "#22c55e"
-C_WARNING  = "#f59e0b"
-C_ERROR    = "#ef4444"
-C_TEXT     = "#e2e8f0"
-C_MUTED    = "#94a3b8"
-C_BORDER   = "#3f3f5a"
-C_WHITE    = "#ffffff"
-"""
 C_BG      = "#f5f5f5"   # Fondo general: gris muy claro
 C_PANEL   = "#e0e0e0"   # Paneles y sidebar: gris claro
 C_ACCENT  = "#424242"   # Botones principales: gris oscuro
@@ -43,7 +30,8 @@ C_SUCCESS = "#388e3c"   # Confirmaciones: verde oscuro sobrio
 C_WARNING = "#5d4037"   # Advertencias: café oscuro
 C_ERROR   = "#b71c1c"   # Errores: rojo oscuro sobrio
 C_TEXT    = "#212121"   # Texto principal: casi negro
-C_MUTED   = "#757575"   # Texto secundario: gris medio
+# C_MUTED   = "#757575"   # Texto secundario: gris medio
+C_MUTED   = "#e0e0e0"   # Texto secundario: gris medio
 C_WHITE   = "#ffffff"   # Blanco puro
 
 
@@ -52,7 +40,7 @@ class AppSoftwareFJ:
         self.root = root
         self.root.title("Software FJ – Sistema Integral de Gestión")
         self.root.geometry("1050x700")
-        self.root.configure(bg=C_BG)
+        self.root.configure(bg=C_ACCENT2)
         self.root.resizable(True, True)
 
         self.sistema = SistemaFJ()
@@ -86,9 +74,9 @@ class AppSoftwareFJ:
         sidebar.pack_propagate(False)
 
         tk.Label(sidebar, text="Software FJ", bg=C_PANEL,
-                 fg=C_ACCENT, font=("Arial", 14, "bold")).pack(pady=(20, 5))
+                 fg=C_ACCENT2, font=("Arial", 14, "bold")).pack(pady=(20, 5))
         tk.Label(sidebar, text="Sistema de Gestión", bg=C_PANEL,
-                 fg=C_MUTED, font=("Arial", 9)).pack(pady=(0, 20))
+                 fg=C_ACCENT2, font=("Arial", 9)).pack(pady=(0, 20))
 
         self.contenido = tk.Frame(self.root, bg=C_BG)
         self.contenido.pack(side="right", fill="both", expand=True)
@@ -106,21 +94,28 @@ class AppSoftwareFJ:
             btn = tk.Button(
                 sidebar, text=texto, bg=C_PANEL, fg=C_TEXT,
                 font=("Arial", 10), bd=0, pady=12, anchor="w", padx=16,
-                activebackground=C_ACCENT, activeforeground=C_WHITE,
+                activebackground=C_ACCENT2, activeforeground=C_WHITE,
                 cursor="hand2", command=comando
             )
             btn.pack(fill="x")
             btn.bind("<Enter>", lambda e, b=btn: b.config(bg=C_ACCENT))
             btn.bind("<Leave>", lambda e, b=btn: b.config(bg=C_PANEL))
 
+       
+        # Nombre del autor en la parte inferior del sidebar
+        tk.Label(sidebar, text="by Manuel Arrieta", bg=C_PANEL,
+                 fg=C_ACCENT, font=("Arial", 8, "italic")).pack(
+                 side="bottom", pady=10)
+
         self._mostrar_demo()
+    
 
     def _limpiar_contenido(self):
         for w in self.contenido.winfo_children():
             w.destroy()
 
     def _titulo(self, parent, texto):
-        tk.Label(parent, text=texto, bg=C_BG, fg=C_WHITE,
+        tk.Label(parent, text=texto, bg=C_BG, fg=C_ACCENT2,
                  font=("Arial", 15, "bold")).pack(anchor="w", padx=24, pady=(20, 4))
         tk.Frame(parent, bg=C_ACCENT, height=2).pack(fill="x", padx=24, pady=(0, 16))
 
@@ -131,13 +126,14 @@ class AppSoftwareFJ:
     def _mostrar_demo(self):
         self._limpiar_contenido()
         self._titulo(self.contenido, "Demostración – 10 Operaciones del Sistema")
+        
 
         info = tk.Label(self.contenido,
             text="Presiona el botón para ejecutar las 10 operaciones de prueba (válidas e inválidas).",
-            bg=C_BG, fg=C_MUTED, font=("Arial", 10))
+            bg=C_BG, fg=C_ACCENT2, font=("Arial", 10))
         info.pack(anchor="w", padx=24, pady=(0, 10))
 
-        btn = tk.Button(self.contenido, text="▶  Ejecutar Demo",
+        btn = tk.Button(self.contenido, text="Ejecutar Demo",
                         bg=C_ACCENT, fg=C_WHITE, font=("Arial", 11, "bold"),
                         padx=20, pady=8, bd=0, cursor="hand2",
                         command=self._correr_demo)
@@ -414,7 +410,7 @@ class AppSoftwareFJ:
         self._limpiar_contenido()
         self._titulo(self.contenido, "Log de Eventos del Sistema")
 
-        txt = scrolledtext.ScrolledText(self.contenido, bg="#0f0f1a", fg=C_TEXT,
+        txt = scrolledtext.ScrolledText(self.contenido, bg=C_TEXT, fg=C_BG,
                                          font=("Courier", 9), state="normal",
                                          wrap="word")
         txt.pack(fill="both", expand=True, padx=24, pady=(0, 16))
